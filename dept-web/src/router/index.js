@@ -28,6 +28,6 @@ export default new Router({
       path: '/createaccount',
       name: 'createaccount',
       component: createaccount
-    },
+    }
   ]
 })

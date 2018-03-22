@@ -52,7 +52,7 @@
     data () {
       return {
         email: '',
-        password: '',
+        password: ''
       }
     }
   }
