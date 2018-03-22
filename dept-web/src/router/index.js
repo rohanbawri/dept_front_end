@@ -29,5 +29,6 @@ export default new Router({
       name: 'createaccount',
       component: createaccount
     }
-  ]
+  ],
+  mode: 'history'
 })
