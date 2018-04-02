@@ -47,7 +47,7 @@
                       id="confirmPassword"
                       v-model="confirmPassword"
                       type="password"
-                      ></v-text-field>
+                      required></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>

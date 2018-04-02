@@ -30,7 +30,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-btn type="submit"><a href="/adminLogin"</v-btn>
+                    <v-btn type="submit"><a href="/adminLogin"></a>Sign in</v-btn>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
