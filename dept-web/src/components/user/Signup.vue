@@ -5,7 +5,7 @@
         <v-card>
           <v-card-text>
             <v-container>
-              <form method="POST" v-bind:action="siteName + '/users/signup'">
+              <form>
                 <v-layout row>
                   <v-flex xs12>
                     <v-text-field
@@ -85,7 +85,7 @@
                 </v-layout>
                 <v-layout row>
                   <v-flex xs12>
-                    <v-btn type="submit">Sign up</v-btn>
+                    <v-btn type="button" v-on:click="signup">Sign up</v-btn>
                   </v-flex>
                 </v-layout>
               </form>
@@ -98,18 +98,39 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        name: '',
-        email: '',
-        usn: '',
-        section: '',
-        username: '',
-        password: '',
-        confirmPassword: '',
-        siteName: 'http://433d1107.ngrok.io'
+import axios from 'axios'
+export default {
+  data () {
+    return {
+      name: '',
+      email: '',
+      usn: '',
+      section: '',
+      username: '',
+      password: '',
+      confirmPassword: '',
+      siteName: 'http://5cc49675.ngrok.io'
+    }
+  },
+  methods: {
+    signup: function () {
+      var data = {
+        username: this.username,
+        password: this.password,
+        confirmPassword: this.confirmPassword,
+        name: this.name,
+        email: this.email,
+        usn: this.usn,
+        section: this.section
       }
+      axios.post(this.siteName + '/user/signup', data)
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
     }
   }
+}
 </script>

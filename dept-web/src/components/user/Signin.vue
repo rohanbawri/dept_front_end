@@ -55,7 +55,8 @@ export default {
     return {
       username: '',
       password: '',
-      siteName: 'http://433d1107.ngrok.io'
+      token: '',
+      siteName: 'http://5cc49675.ngrok.io'
     }
   },
   methods: {
@@ -64,9 +65,11 @@ export default {
         username: this.username,
         password: this.password
       }
-      axios.post(this.siteName + '/users/signin', data)
+      axios.post(this.siteName + '/user/signin', data)
       .then((res) => {
         console.log(res)
+        this.token = res.data.token
+        console.log(this.token)
       })
       .catch((error) => {
         console.log(error)
