@@ -12,7 +12,7 @@
                       name="username"
                       label="Username"
                       id="username"
-                      v-model="username"
+                      v-model="user.username"
                       type="username"
                       required></v-text-field>
                   </v-flex>
@@ -23,7 +23,7 @@
                       name="password"
                       label="Password"
                       id="password"
-                      v-model="password"
+                      v-model="user.password"
                       type="password"
                       required></v-text-field>
                   </v-flex>
@@ -53,8 +53,10 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      username: '',
-      password: '',
+      user: {
+        username: '',
+        password: ''
+      },
       token: '',
       siteName: 'http://5cc49675.ngrok.io'
     }
@@ -67,9 +69,7 @@ export default {
       }
       axios.post(this.siteName + '/user/signin', data)
       .then((res) => {
-        console.log(res)
         this.token = res.data.token
-        console.log(this.token)
       })
       .catch((error) => {
         console.log(error)

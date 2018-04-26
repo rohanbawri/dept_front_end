@@ -12,7 +12,7 @@
                       name="name"
                       label="Name"
                       id="name"
-                      v-model="name"
+                      v-model="user.name"
                       type="name"
                       required></v-text-field>
                   </v-flex>
@@ -23,7 +23,7 @@
                       name="email"
                       label="Mail"
                       id="email"
-                      v-model="email"
+                      v-model="user.email"
                       type="email"
                       required></v-text-field>
                   </v-flex>
@@ -34,7 +34,7 @@
                       name="usn"
                       label="USN"
                       id="usn"
-                      v-model="usn"
+                      v-model="user.usn"
                       type="usn"
                       required></v-text-field>
                   </v-flex>
@@ -45,7 +45,7 @@
                       name="section"
                       label="Section"
                       id="section"
-                      v-model="section"
+                      v-model="user.section"
                       type="section"
                       ></v-text-field>
                   </v-flex>
@@ -56,7 +56,7 @@
                       name="username"
                       label="Username"
                       id="username"
-                      v-model="username"
+                      v-model="user.username"
                       type="username"
                       required></v-text-field>
                   </v-flex>
@@ -67,7 +67,7 @@
                       name="password"
                       label="Password"
                       id="password"
-                      v-model="password"
+                      v-model="user.password"
                       type="password"
                       required></v-text-field>
                   </v-flex>
@@ -78,7 +78,7 @@
                       name="confirmPassword"
                       label="Confirm Password"
                       id="confirmPassword"
-                      v-model="confirmPassword"
+                      v-model="user.confirmPassword"
                       type="password"
                       required></v-text-field>
                   </v-flex>
@@ -102,14 +102,17 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      name: '',
-      email: '',
-      usn: '',
-      section: '',
-      username: '',
-      password: '',
-      confirmPassword: '',
-      siteName: 'http://5cc49675.ngrok.io'
+      user: {
+        name: '',
+        email: '',
+        usn: '',
+        section: '',
+        username: '',
+        password: '',
+        confirmPassword: ''
+      },
+      siteName: 'http://5cc49675.ngrok.io',
+      token: ''
     }
   },
   methods: {

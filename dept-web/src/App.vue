@@ -1,6 +1,12 @@
 <template>
   <v-app>
+    <v-navigation-drawer temporary v-model="sideNav" absolute>
+      <v-list>
+
+      </v-list>
+    </v-navigation-drawer>
     <v-toolbar dark class="primary">
+      <v-toolbar-side-icon v-if="token" v-on:click="sideNav = !sideNav"></v-toolbar-side-icon>
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor: pointer">Home page</router-link>
       </v-toolbar-title>
@@ -14,6 +20,14 @@
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
+        <v-btn
+          flat
+          v-if="token"
+          :key="'Log out'"
+          :to="'/logout'">
+          <v-icon left dark>clear </v-icon>
+          Log out
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <main>
@@ -26,11 +40,13 @@
   export default {
     data () {
       return {
+        token: '',
         menuItems: [
           {icon: 'face', title: 'Sign in', link: '/signin'},
-          {icon: 'lock_open', title: 'Sign up', link: '/signup'},
-          {icon: 'clear', title: 'Log out', link: '/logout'}
-        ]
+          {icon: 'lock_open', title: 'Sign up', link: '/signup'}
+          // {icon: 'clear', title: 'Log out', link: '/logout'}
+        ],
+        sideNav: false
       }
     }
   }
