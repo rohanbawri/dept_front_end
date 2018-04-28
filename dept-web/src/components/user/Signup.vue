@@ -111,20 +111,19 @@ export default {
         password: '',
         confirmPassword: ''
       },
-      siteName: 'http://5cc49675.ngrok.io',
-      token: ''
+      siteName: 'http://5cc49675.ngrok.io'
     }
   },
   methods: {
     signup: function () {
       var data = {
-        username: this.username,
-        password: this.password,
-        confirmPassword: this.confirmPassword,
-        name: this.name,
-        email: this.email,
-        usn: this.usn,
-        section: this.section
+        username: this.user.username,
+        password: this.user.password,
+        confirmPassword: this.user.confirmPassword,
+        name: this.user.name,
+        email: this.user.email,
+        usn: this.user.usn,
+        section: this.user.section
       }
       axios.post(this.siteName + '/user/signup', data)
       .then((res) => {

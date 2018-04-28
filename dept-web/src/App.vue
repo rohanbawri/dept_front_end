@@ -20,7 +20,7 @@
           <v-icon left dark>{{ item.icon }}</v-icon>
           {{ item.title }}
         </v-btn>
-        <v-btn
+        <v-btn @click="setToken('')"
           flat
           v-if="token"
           :key="'Log out'"
@@ -48,6 +48,16 @@
         ],
         sideNav: false
       }
+    },
+    methods: {
+      setToken: function (logoutToken) {
+        this.$store.dispatch('setToken', logoutToken)
+      }
+    },
+    created () {
+      // var tokens
+      this.token = this.$store.state.user.token
+      // this.token = tokens
     }
   }
 </script>

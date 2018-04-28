@@ -69,12 +69,16 @@ export default {
       }
       axios.post(this.siteName + '/user/signin', data)
       .then((res) => {
-        this.token = res.data.token
+        // this.token = res.data.token  // or this.$store.dispatch('setToken',res.data.token)
+        this.$store.dispatch('setToken', res.data.token)
       })
       .catch((error) => {
         console.log(error)
-      })
+      })/* .then({
+        this.$store.dispatch('setToken',this.token)
+      }) */
     }
+
   }
 }
 </script>
